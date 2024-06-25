@@ -1,0 +1,79 @@
+:root {
+    --primary-color: #2D3250;
+    --secondary-color: #424769;
+    --alt-color-dark: #7077A1;
+    --alt-color-light: #F6B17A;
+    --warning-background : #FDEDEC;
+    --warning-border : #922B21;
+    --warning-text : #641E16;
+    --success-background : #E9F7EF;
+    --success-border : #1E8449;
+    --success-text : #145A32;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--primary-color);
+    text-align: center;
+    color: var(--alt-color-light);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10%;
+}
+
+h1 {
+    color: var(--alt-color-light);
+}
+
+input{
+    width: 500px !important;
+}
+
+button{
+    background-color: var(--alt-color-light) !important;
+    color: var(--secondary-color) !important;
+    min-width: 68px;
+}
+
+#helper{
+    color: var(--alt-color-dark);
+    text-align: left;
+}
+
+#result-container{
+    width: 500px;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+#result-container p span{
+    text-align: left;
+    font-size: small;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+#result-container p {
+    font-size:smaller;
+    text-align: justify;
+    text-wrap: balance;
+    margin-bottom: 0px;
+}
+
+.success{
+    background-color: var(--success-background);
+    color:var(--success-text);
+    border:1px solid var(--success-border);
+}
+
+.warning{
+    background-color: var(--warning-background);
+    color:var(--warning-text);
+    border:1px solid var(--warning-border);
+}
