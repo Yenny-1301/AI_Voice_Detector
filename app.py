@@ -24,7 +24,11 @@ except FileNotFoundError:
 except Exception as e:
     raise Exception(f"Error loading model: {e}")
 
-app = FastAPI()
+app = FastAPI(
+    title="Audio Feature Extraction and Prediction API",
+    description="Esta API recibe un archivo de audio y devuelve una predicción basada en características extraídas del audio.",
+    version="1.0.0"
+)
 
 # Habilitar CORS para permitir solicitudes desde el frontend
 app.add_middleware(
@@ -57,8 +61,15 @@ def process_audio(audio_file):
         print(f"Error processing audio: {e}")
         raise HTTPException(status_code=500, detail=f"Error procesando el audio: {e}")
 
-@app.post("/predict/")
+@app.post("/predict/",summary="Realizar predicción a partir de un archivo de audio", description="Este endpoint recibe un archivo de audio y devuelve una predicción basada en las características extraídas del audio.")
 async def predict(file: UploadFile = File(...)):
+    """
+    Realiza una predicción basada en un archivo de audio cargado.
+
+    - **file**: Archivo de audio que se desea analizar.
+
+    Retorna una predicción basada en el modelo pre-entrenado.
+    """
     try:
         # Ensure the temp directory exists
         os.makedirs("temp", exist_ok=True)
